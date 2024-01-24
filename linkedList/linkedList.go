@@ -28,3 +28,24 @@ func emptyLL[T any]() LinkedList[T] {
 func (l LinkedList[T]) isEmptyLL() bool {
 	return l.size == 0
 }
+
+func (l LinkedList[T]) sizeLL() int {
+	return l.size
+}
+
+func (l *LinkedList[T]) appendLL(element T) {
+	nodeToAppend := &node[T]{
+		next:    nil,
+		element: element,
+	}
+	if l.head == nil {
+		l.head = nodeToAppend
+		l.tail = nodeToAppend
+	} else {
+		nodeToAppend.next = l.head
+
+		l.head = nodeToAppend
+	}
+
+	l.size += 1
+}
