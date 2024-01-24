@@ -24,3 +24,7 @@ func emptyLL[T any]() LinkedList[T] {
 		size: 0,
 	}
 }
+
+func (l LinkedList[T]) isEmptyLL() bool {
+	return l.size == 0
+}
