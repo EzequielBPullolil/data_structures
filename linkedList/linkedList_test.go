@@ -14,9 +14,13 @@ func TestIsEmpty(t *testing.T) {
 func TestAppendElementIncrementSize(t *testing.T) {
 	l := emptyLL[int]()
 	assert.Equal(t, l.sizeLL(), 0)
-
 	l.appendLL(10)
-
 	assert.Equal(t, l.sizeLL(), 1)
 }
- 
+
+func TestConsElementIncrementSize(t *testing.T) {
+	l := emptyLL[int]()
+	assert.Equal(t, l.sizeLL(), 0)
+	l.consLL(10)
+	assert.Equal(t, l.sizeLL(), 1)
+}

@@ -43,9 +43,27 @@ func (l *LinkedList[T]) appendLL(element T) {
 		l.tail = nodeToAppend
 	} else {
 		nodeToAppend.next = l.head
-
 		l.head = nodeToAppend
 	}
 
 	l.size += 1
 }
+
+func (l *LinkedList[T]) consLL(element T) {
+	nodeToAppend := &node[T]{
+		next:    nil,
+		element: element,
+	}
+
+	if l.tail == nil {
+		l.head = nodeToAppend
+		l.tail = nodeToAppend
+	} else {
+		l.tail.next = nodeToAppend
+		l.tail = nodeToAppend
+	}
+
+	l.size += 1
+}
+
+
