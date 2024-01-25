@@ -1,0 +1,1 @@
+inotifywait -m -r -e modify,create,delete,move --format '%w%f' "." | while read archivo; do clear && go run gotest.tools/gotestsum@latest --packages="./$1" --format testdox ; done
