@@ -75,3 +75,13 @@ func (l LinkedList[T]) containsLL(element T) bool {
 
 	return actual != nil && actual.element == element
 }
+
+func (l LinkedList[T]) toList() []T {
+	var list []T
+	actual := l.head
+	for actual != nil {
+		list = append(list, actual.element)
+		actual = actual.next
+	}
+	return list
+}

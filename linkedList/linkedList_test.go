@@ -39,3 +39,12 @@ func TestContainsElement(t *testing.T) {
 	assert.True(t, l.containsLL(5))
 	assert.True(t, l.containsLL(3))
 }
+
+func TestToListIsInOrd(t *testing.T) {
+	l := emptyLL[int]()
+	elements := [6]int{10, 9, 3, 2, 5, 34}
+	for i := range elements {
+		l.consLL(elements[i])
+	}
+	assert.Equal(t, elements[:], l.toList())
+}
