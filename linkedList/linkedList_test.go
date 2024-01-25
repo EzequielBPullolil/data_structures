@@ -1,7 +1,6 @@
 package linkedlist
 
 import (
-	"fmt"
 	"slices"
 	"testing"
 
@@ -71,8 +70,6 @@ func TestInsertAt(t *testing.T) {
 		l.consLL(elements[i])
 	}
 	l.insertAt(4, 4)
-
-	fmt.Println(l.toList())
 	assert.Equal(t, elements[4], 4)
 }
 

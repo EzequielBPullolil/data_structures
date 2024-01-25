@@ -69,7 +69,7 @@ func (l *LinkedList[T]) consLL(element T) {
 func (l LinkedList[T]) containsLL(element T) bool {
 	actual := l.head
 
-	for actual.next != nil && actual.element != element {
+	for actual != nil && actual.element != element {
 		actual = actual.next
 	}
 
