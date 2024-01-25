@@ -1,6 +1,7 @@
 package linkedlist
 
 import (
+	"slices"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -40,11 +41,21 @@ func TestContainsElement(t *testing.T) {
 	assert.True(t, l.containsLL(3))
 }
 
-func TestToListIsInOrd(t *testing.T) {
+func TestToListIsInOrdConsLL(t *testing.T) {
 	l := emptyLL[int]()
 	elements := [6]int{10, 9, 3, 2, 5, 34}
 	for i := range elements {
 		l.consLL(elements[i])
 	}
+	assert.Equal(t, elements[:], l.toList())
+}
+
+func TestToListIsInOrdAppendLL(t *testing.T) {
+	l := emptyLL[int]()
+	elements := []int{10, 9, 3, 2, 5, 34}
+	for i := range elements {
+		l.appendLL(elements[i])
+	}
+	slices.Reverse(elements)
 	assert.Equal(t, elements[:], l.toList())
 }
