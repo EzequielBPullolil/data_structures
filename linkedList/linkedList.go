@@ -7,17 +7,17 @@ Dado un LinkedList con los campos head, size y end:
 3. 'size' es igual a la cantidad de elementos del LinkedList
 4. Sí 'size' es > 1 entonces 'head' y 'end' no pueden ser iguales
 */
-type node[T any] struct {
+type node[T comparable] struct {
 	next    *node[T]
 	element T
 }
 
-type LinkedList[T any] struct {
+type LinkedList[T comparable] struct {
 	head, tail *node[T]
 	size       int
 }
 
-func emptyLL[T any]() LinkedList[T] {
+func emptyLL[T comparable]() LinkedList[T] {
 	return LinkedList[T]{
 		head: nil,
 		tail: nil,
@@ -66,4 +66,12 @@ func (l *LinkedList[T]) consLL(element T) {
 	l.size += 1
 }
 
+func (l LinkedList[T]) containsLL(element T) bool {
+	actual := l.head
 
+	for actual.next != nil && actual.element != element {
+		actual = actual.next
+	}
+
+	return actual != nil && actual.element == element
+}
