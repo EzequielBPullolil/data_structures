@@ -85,3 +85,17 @@ func (l LinkedList[T]) toList() []T {
 	}
 	return list
 }
+
+// append element at index 'index'
+// precond: index can't be greater than 'sizes' linkedlist
+func (l *LinkedList[T]) insertAt(index int, element T) {
+	if index > l.size {
+		panic("index can't be greater than 'sizes'")
+	}
+	actual := l.head
+	for i := 1; i < index; i++ {
+		actual = actual.next
+	}
+	newNode := &node[T]{element: element, next: actual.next}
+	actual.next = newNode
+}

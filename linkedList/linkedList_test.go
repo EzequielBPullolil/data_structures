@@ -1,6 +1,7 @@
 package linkedlist
 
 import (
+	"fmt"
 	"slices"
 	"testing"
 
@@ -58,4 +59,19 @@ func TestToListIsInOrdAppendLL(t *testing.T) {
 	}
 	slices.Reverse(elements)
 	assert.Equal(t, elements[:], l.toList())
+}
+
+func TestInsertAt(t *testing.T) {
+	l := emptyLL[int]()
+	elements := []int{10, 9, 3, 2, 4, 5, 34}
+	for i := range elements {
+		if i == 4 {
+			continue
+		}
+		l.consLL(elements[i])
+	}
+	l.insertAt(4, 4)
+
+	fmt.Println(l.toList())
+	assert.Equal(t, elements[4], 4)
 }
