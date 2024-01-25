@@ -75,3 +75,16 @@ func TestInsertAt(t *testing.T) {
 	fmt.Println(l.toList())
 	assert.Equal(t, elements[4], 4)
 }
+
+func TestPopElement(t *testing.T) {
+	l := emptyLL[int]()
+	elements := [6]int{10, 9, 3, 2, 5, 34}
+	for i := range elements {
+		l.consLL(elements[i])
+	}
+
+	assert.Equal(t, elements[:], l.toList())
+
+	l.popLL()
+	assert.Equal(t, elements[1:], l.toList())
+}

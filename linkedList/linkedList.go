@@ -99,3 +99,11 @@ func (l *LinkedList[T]) insertAt(index int, element T) {
 	newNode := &node[T]{element: element, next: actual.next}
 	actual.next = newNode
 }
+
+// Deletes the first element of the LinkedList
+// If it is empty then it does nothing
+func (l *LinkedList[T]) popLL() {
+	if l.head != nil {
+		l.head = l.head.next
+	}
+}
